@@ -79,7 +79,7 @@ export default function Home() {
         left={"50%"}
         width={400}
         bgcolor={"white"}
-        border={"2px solid #000"}
+        border={"2px solid #eee"}
         boxShadow={24}
         p={4}
         display={"flex"}
@@ -111,9 +111,9 @@ export default function Home() {
         </Box>
       </Modal>
       <Button variant='contained' onClick={() => {handleOpen()}}>Add New Item</Button>
-      <Box border="1px solid #333">
-        <Box width={"800px"} height={"100px"} bgcolor={"#ADD8E6"}>
-            <Typography variant='h2' color={'#333'} display={"flex"} alignItems={"center"} justifyContent={"center"}>Inventory Items</Typography>
+      <Box border="1px solid #eee">
+        <Box width={"800px"} height={"100px"} bgcolor={"#ADD8E6"} display={"flex"} alignItems={"center"} justifyContent={"center"}>
+            <Typography variant='h2' color={'#333'} >Inventory Items</Typography>
         </Box>
       <Stack width={"800px"} height={"300px"} spacing={2} overflow={"auto"}>
             {
