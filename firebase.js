@@ -18,9 +18,15 @@ const firebaseConfig = {
   measurementId: "G-WNGJYG85G9"
 };
 
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-const auth = getAuth();
-const firestore = getFirestore(app)
-const analytics = app.name && typeof window !== 'undefined' ? getAnalytics(app) : null;
+let auth;
+let firestore;
+let analytics;
+if (typeof window !== "undefined"){
+  // Initialize Firebase
+  const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+  auth = getAuth(app);
+  firestore = getFirestore(app);
+  analytics = getAnalytics(app);
+}
 
 export {auth, firestore, analytics}
