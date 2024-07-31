@@ -43,7 +43,7 @@ export default function Home() {
 
 
   const addItem = async (item) => {
-    const docRef = doc(collection(firestore, 'inventory'), item.charAt(0).toUpperCase()+item.slice(1))
+    const docRef = doc(collection(firestore, 'inventory'), item.charAt(0).toUpperCase()+item.slice(1).toLowerCase())
     const docSnap = await getDoc(docRef)
   
     if (docSnap.exists()) {
