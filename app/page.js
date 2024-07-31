@@ -4,18 +4,9 @@ import { useState, useEffect } from 'react'
 import { firestore } from '@/firebase'
 import { collection, query, setDoc, deleteDoc, doc, getDoc, getDocs } from 'firebase/firestore'
 
-const item = [
-  'tomato',
-  'onion',
-  'potato',
-  'carrot',
-  'apple',
-  'banana',
-]
-
 export default function Home() {
   const [inventory, setInventory] = useState([])
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
   const [item, setItemName] = useState('')
 
   const updateInventory = async () => {
@@ -66,8 +57,6 @@ export default function Home() {
     await updateInventory()
 
   }
-
-
 
   useEffect(() => {
     updateInventory()
