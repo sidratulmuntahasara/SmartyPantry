@@ -1,8 +1,13 @@
 'use client'
+import "./globals.css";
 import { useState, useEffect } from 'react'
-import { Box, Modal, Typography, Stack, TextField, Button } from '@mui/material'
-import { firestore } from '@/firebase'
+import React from 'react'
+import Image from 'next/image'
+import { Box, Modal, Typography, Stack, TextField, Button, AppBar } from '@mui/material'
+import { firestore } from '../firebase'
 import { collection, query, setDoc, deleteDoc, doc, getDoc, getDocs } from 'firebase/firestore'
+// import { ResponsiveAppBar } from "./appbar";
+
 
 export default function Home() {
   const [inventory, setInventory] = useState([])
@@ -66,13 +71,23 @@ export default function Home() {
 
   const handleClose = () => setOpen(false)
 
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
   return <Box width="100vw" height="100vh" 
     display="flex"
     flexDirection={"column"}
-    justifyContent="center"
-    alignItems="center"
-    gap={2}>
-      <Modal open={open} onClose={handleClose}>
+    justifyContent="space-between"
+    alignItems="start"
+    gap={2} className="bg-black">
+      <AppBar position="sticky" className='bg-transparent border-b border-white border-opacity-25 flex content-evenly justify-items-center flex-row place-content-evenly padding-500'> 
+      <Image></Image> 
+      <Typography className='text-3xl align-middle'> Pantry Pal </Typography>
+      <Button >Green</Button>
+      </AppBar>
+      {/* <ResponsiveAppBar/> */}
+      <Box width="100vw" height="100vh" display="flex" flexDirection={"column"} justifyContent="center" alignItems="center" gap={2}>
+      {/* <Modal open={open} onClose={handleClose}>
         <Box
         position={'absolute'}
         top={"50%"}
@@ -109,7 +124,7 @@ export default function Home() {
             </Button>
           </Stack>
         </Box>
-      </Modal>
+      </Modal> */}
       <Button variant='contained' onClick={() => {handleOpen()}}>Add New Item</Button>
       <Box border="1px solid #eee">
         <Box width={"800px"} height={"100px"} bgcolor={"#ADD8E6"} display={"flex"} alignItems={"center"} justifyContent={"center"}>
@@ -149,6 +164,7 @@ export default function Home() {
               ))
             }
       </Stack>
+      </Box>
       </Box>
   </Box>
 }
