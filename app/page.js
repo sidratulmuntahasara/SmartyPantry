@@ -95,9 +95,13 @@ export default function Home() {
           </Box>
         </Modal>
         <Modal open={openAddItemsModal} onClose={handleCloseAddItemsModal}>
-          <Box position={'absolute'} top={"50%"} left={"50%"} border={"2px solid #eee"} boxShadow={24} p={4} display={"flex"} flexDirection={'column'} gap={3} sx={{  transform: 'translate(-50%, -50%)', }} className=" bg-gradient-to-br from-pink-200 to-purple-900 w-svw md:w-5/6 lg:w-5/12">
-            <Typography variant='h5' className="text-center font-bold text-fuchsia-950">WELCOME TO SMARTY PANTRY!</Typography>
-            <Button variant='contained' onClick={handleCloseAddItemsModal} className="glass bg-black font-bold hover:bg-pink-500">Close</Button>
+          <Box position={'absolute'} top={"50%"} left={"50%"} border={"2px solid #eee"} boxShadow={24} p={4} display={"flex"} flexDirection={'column'} gap={3} sx={{  transform: 'translate(-50%, -50%)', }} className=" bg-gradient-to-br from-pink-200 to-purple-900 w-svw md:w-5/6 lg:w-4/12">
+            <Typography variant='h5' className="text-center font-bold text-fuchsia-950">Add New Items</Typography>
+            <Box className="flex flex-row gap-2">
+              <TextField variant="outlined" placeholder="Item Name" value={item} onChange={(e) => setItemName(e.target.value)} className="bg-white rounded w-full"/>
+              <Button variant='contained' className="bg-gradient-to-br from-teal-200 to-pink-700 text-black hover:bg-gradient-to-tr font-bold" onClick={() => {addItem(item), setItemName(''), handleCloseAddItemsModal()}}>Add</Button>
+            </Box>
+            <Button variant='contained' onClick={handleCloseAddItemsModal} className=" bg-black font-bold hover:bg-pink-500">Close</Button>
           </Box>
         </Modal>
         
@@ -109,11 +113,11 @@ export default function Home() {
             onChange={(e) => setSearchTerm(e.target.value)}
             className="w-5/6 md:w-1/2 lg:w-1/3 my-4 bg-white rounded"
           />
-          <Box border="1px solid #eee" className="w-svw md:w-6/12 lg:w-8/12">
+          <Box border="1px solid #eee" className="w-svw md:w-6/12 lg:w-8/12 rounded">
             <Box height={"50px"} display={"flex"} alignItems={"center"} justifyContent={"center"} className="bg-rose-400">
               <Typography variant='h4' color={'#fff'} className="font-serif italic text-lg md:text-xl lg:text-3xl">Inventory Items</Typography>
             </Box>
-            <Stack height={"400px"} spacing={2} overflow={"auto"}>
+            <Stack height={"400px"} spacing={1} overflow={"auto"}>
               {filteredInventory.map(({ name, quantity }) => (
                 <Box 
                   key={name} 
