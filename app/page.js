@@ -8,7 +8,7 @@ import { collection, query, setDoc, deleteDoc, doc, getDoc, getDocs } from 'fire
 
 export default function Home() {
   const [inventory, setInventory] = useState([]);
-  const [openHomeModal, setOpenHomeModal] = useState(false);
+  const [openHomeModal, setOpenHomeModal] = useState(true);
   const [openAddItemsModal, setOpenAddItemsModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [item, setItemName] = useState('');
