@@ -4,7 +4,7 @@ const chatModel = new ChatOpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-export async function handler(req, res) {
+export default async function handler(req, res) {
   console.log("API route hit");
   if (req.method === 'POST') {
     const { prompt } = req.body;
