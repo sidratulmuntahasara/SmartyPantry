@@ -7,6 +7,7 @@ import { Box, Modal, Typography, Stack, TextField, Button, AppBar, Fab } from '@
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import { firestore } from '../firebase';
 import { collection, query, setDoc, deleteDoc, doc, getDoc, getDocs } from 'firebase/firestore';
+import Link from 'next/link';
 
 export default function Home() {
   const [inventory, setInventory] = useState([]);
@@ -124,7 +125,10 @@ export default function Home() {
             <Typography variant='h5' className="text-center font-bold text-fuchsia-950">WELCOME TO SMARTY PANTRY!</Typography>
             <Typography className="flex-wrap text-center text-white">Hello There! I am MissAI, the Creator of SmartyPantry. Smarty Pantry comes with an immersive blend of AI, UI, Frontend and Backend, all with the support of Next.js, React, Firebase, Material UI, Tailwind CSS, Daisy UI, Langchain & Open AI API</Typography>
             <Typography className="flex-wrap text-center text-white">Play around and do whatever, the park is yours!</Typography>
-            <Button variant='contained' onClick={handleCloseHomeModal} className="glass bg-black font-bold hover:bg-pink-500">Close</Button>
+            <Box className="flex flex-col justify-center items-center">
+              <Link href={"https://www.sidratulmuntahasara.com"} target='_blank' className='w-full'><Button variant='contained' className=" bg-rose-400 font-bold hover:bg-gradient-to-tr hover:from-black hover:to-slate-600 mb-3  w-full">About More</Button></Link>
+              <Button variant='contained' onClick={handleCloseHomeModal} className="glass bg-black font-bold hover:bg-gradient-to-tr hover:from-violet-950 hover:to-violet-400 w-full">Close</Button>
+            </Box>
           </Box>
         </Modal>
         <Modal open={openAddItemsModal} onClose={handleCloseAddItemsModal}>
