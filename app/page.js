@@ -79,7 +79,7 @@ export default function Home() {
     setLoading(true);
     setOpenDrawer(true);
     try {
-      const response = await fetch('/api/generateRecipes', {
+      const response = await fetch('/api/generateRecipes.js', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -122,7 +122,7 @@ export default function Home() {
         <Modal open={openHomeModal} onClose={handleCloseHomeModal}>
           <Box position={'absolute'} top={"50%"} left={"50%"} border={"2px solid #eee"} boxShadow={24} p={4} display={"flex"} flexDirection={'column'} gap={3} sx={{  transform: 'translate(-50%, -50%)', }} className=" bg-gradient-to-br from-pink-200 to-purple-900 w-svw md:w-5/6 lg:w-5/12">
             <Typography variant='h5' className="text-center font-bold text-fuchsia-950">WELCOME TO SMARTY PANTRY!</Typography>
-            <Typography className="flex-wrap text-center text-white">Hello There! I am MissAI, the Creator of SmartyPantry. Smarty Pantry comes with an immersive blend of AI, UI, Frontend and Backend, all with the support of Next.js, React, Firebase, Material UI, Tailwind CSS, Daisy UI, Open AI API, & Llama 3.1 API</Typography>
+            <Typography className="flex-wrap text-center text-white">Hello There! I am MissAI, the Creator of SmartyPantry. Smarty Pantry comes with an immersive blend of AI, UI, Frontend and Backend, all with the support of Next.js, React, Firebase, Material UI, Tailwind CSS, Daisy UI, Langchain & Open AI API</Typography>
             <Typography className="flex-wrap text-center text-white">Play around and do whatever, the park is yours!</Typography>
             <Button variant='contained' onClick={handleCloseHomeModal} className="glass bg-black font-bold hover:bg-pink-500">Close</Button>
           </Box>
@@ -185,9 +185,10 @@ export default function Home() {
             <Box className="flex flex-col items-center justify-center min-h-[200px]">
               <Typography variant='h5' className="text-center mb-4 text-white">Generating yum-tastic recipes for you ✨</Typography>
               <div className="sparkles-container">
+                <div className="sparkle text-white">๋࣭⭑</div>
+                <div className="sparkle text-white">๋࣭⭑</div>
                 <div className="sparkle">✨</div>
-                <div className="sparkle">✨</div>
-                <div className="sparkle">✨</div>
+                <div className="sparkle text-white">✨࣭⭑</div>
               </div>
             </Box>
           ) : (
