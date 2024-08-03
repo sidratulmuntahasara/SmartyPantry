@@ -79,7 +79,7 @@ export default function Home() {
     setLoading(true);
     setOpenDrawer(true);
     try {
-      const response = await fetch('/api/route', {
+      const response = await fetch('/api/generateRecipes', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
